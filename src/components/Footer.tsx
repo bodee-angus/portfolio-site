@@ -30,7 +30,7 @@ export function Footer() {
             <Button
               size="lg"
               className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded-full"
-              onClick={() => window.open('mailto:hello@bodeeangus.com', '_blank')}
+              onClick={() => window.open('mailto:bodee.angus@icloud.com', '_blank')}
             >
               <Mail className="w-4 h-4 mr-2" />
               Get In Touch
@@ -47,7 +47,7 @@ export function Footer() {
         >
           <div className="flex justify-center space-x-6 mb-8">
             <a
-              href="https://github.com"
+              href="https://github.com/bodee-angus"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
@@ -55,7 +55,7 @@ export function Footer() {
               <Github className="w-6 h-6" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/bodee-angus/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
