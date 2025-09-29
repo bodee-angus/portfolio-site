@@ -1,51 +1,51 @@
-export type Project = {
-  title: string
-  description: string
-  tech: string[]
-  liveUrl?: string
-  repoUrl?: string
+import { motion } from "motion/react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ExternalLink } from "lucide-react";
+
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  category: string;
 }
 
-export function ProjectCard({ title, description, tech, liveUrl, repoUrl }: Project) {
+export function ProjectCard({ title, description, image, url, category }: ProjectCardProps) {
   return (
-    <article className="flex h-full flex-col justify-between rounded-xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-      <div className="space-y-3">
-        <h3 className="text-lg font-semibold text-neutral-900">{title}</h3>
-        <p className="text-sm text-neutral-600">{description}</p>
-        <ul className="flex flex-wrap gap-2 text-xs font-medium uppercase tracking-wide text-neutral-500">
-          {tech.map((item) => (
-            <li
-              className="rounded-full border border-neutral-200 px-3 py-1"
-              key={item}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
+    <motion.div
+      whileHover={{ y: -8 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="group cursor-pointer"
+      onClick={() => window.open(url, '_blank')}
+    >
+      <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div className="aspect-[4/3] overflow-hidden bg-gray-100">
+          <ImageWithFallback
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
 
-      <div className="mt-6 flex items-center gap-4 text-sm font-medium">
-        {liveUrl && (
-          <a
-            className="text-blue-600 transition hover:text-blue-700"
-            href={liveUrl}
-            rel="noreferrer"
-            target="_blank"
-          >
-            View live
-          </a>
-        )}
-        {repoUrl && (
-          <a
-            className="text-neutral-600 transition hover:text-neutral-900"
-            href={repoUrl}
-            rel="noreferrer"
-            target="_blank"
-          >
-            Source code
-          </a>
-        )}
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-sm text-gray-500 uppercase tracking-wide">
+              {category}
+            </span>
+            <ExternalLink
+              className="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors"
+            />
+          </div>
+
+          <h3 className="mb-2 group-hover:text-gray-600 transition-colors">
+            {title}
+          </h3>
+
+          <p className="text-gray-600 leading-relaxed">
+            {description}
+          </p>
+        </div>
       </div>
-    </article>
-  )
+    </motion.div>
+  );
 }

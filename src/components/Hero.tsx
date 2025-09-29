@@ -1,50 +1,42 @@
-import { scrollToSection } from "./Header"
-
-function scrollToProjects() {
-  scrollToSection("projects")
-}
+import { Button } from "./ui/button";
+import { motion } from "motion/react";
 
 export function Hero() {
+  const scrollToProjects = () => {
+    const element = document.getElementById('projects');
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section
-      id="hero"
-      className="mx-auto flex max-w-5xl flex-col items-start gap-10 px-6 pb-24 pt-28 text-neutral-900"
-    >
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-        Hi, I'm Your Name
-      </p>
-      <div className="space-y-6">
-        <h1 className="text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
-          Crafting thoughtful web experiences with modern tools and a focus on
-          usability.
-        </h1>
-        <p className="max-w-2xl text-lg text-neutral-600">
-          I'm a front-end engineer who loves building performant, accessible
-          interfaces. I enjoy collaborating with teams to transform complex
-          problems into intuitive products.
-        </p>
-      </div>
-      <div className="flex flex-wrap items-center gap-4">
-        <button
-          className="rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-neutral-700"
-          onClick={scrollToProjects}
-          type="button"
+    <section id="hero" className="min-h-screen flex items-center justify-center px-6 bg-gradient-to-b from-white to-gray-50">
+      <div className="max-w-4xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          View Projects
-        </button>
-        <a
-          className="text-sm font-medium text-neutral-700 underline-offset-4 transition hover:underline"
-          href="#contact"
-          onClick={(event) => {
-            event.preventDefault()
-            scrollToSection("contact")
-          }}
-        >
-          Get in touch
-        </a>
+          <h1 className="text-5xl md:text-7xl mb-6 tracking-tight">
+            BoDee Angus
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Creative designer and developer crafting exceptional digital experiences
+            with attention to detail and user-centered design.
+          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <Button
+              onClick={scrollToProjects}
+              size="lg"
+              className="bg-black hover:bg-gray-800 px-8 py-3 rounded-full"
+            >
+              View My Work
+            </Button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
-  )
+  );
 }
-
-export { scrollToProjects }
