@@ -2,10 +2,6 @@ import { Button } from "./ui/button";
 import { motion } from "motion/react";
 
 export function Hero() {
-  const scrollToProjects = () => {
-    const element = document.getElementById('projects');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center px-6 bg-gradient-to-b from-white to-gray-50">
@@ -28,11 +24,11 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <Button
-              onClick={scrollToProjects}
+              asChild
               size="lg"
               className="bg-black text-white hover:bg-gray-800 px-8 py-3 rounded-full"
             >
-              View My Work
+              <a href="#projects">View My Work</a>
             </Button>
           </motion.div>
         </motion.div>
