@@ -30,7 +30,7 @@ export function Header() {
             onClick={() => scrollToSection('contact')}
             variant="default"
             size="sm"
-            className="bg-black hover:bg-gray-800 ml-4 transition-all duration-200 ease-out hover:scale-[0.98]"
+            className="bg-black text-white hover:bg-gray-800 ml-4 transition-all duration-200 ease-out hover:scale-[0.98]"
           >
             Contact
           </Button>

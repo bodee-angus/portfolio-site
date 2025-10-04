@@ -30,7 +30,7 @@ export function Hero() {
             <Button
               onClick={scrollToProjects}
               size="lg"
-              className="bg-black hover:bg-gray-800 px-8 py-3 rounded-full"
+              className="bg-black text-white hover:bg-gray-800 px-8 py-3 rounded-full"
             >
               View My Work
             </Button>
