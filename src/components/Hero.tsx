@@ -2,9 +2,15 @@ import { Button } from "./ui/button";
 import { motion } from "motion/react";
 
 export function Hero() {
-
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-6 bg-gradient-to-b from-white to-gray-50">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
+    >
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-300 via-purple-300 to-indigo-300" />
+      </div>
+
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
