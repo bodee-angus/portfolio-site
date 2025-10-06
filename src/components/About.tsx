@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import Portrait from "../assets/Portrait.jpeg";
 
 export function About() {
   return (
@@ -61,8 +62,14 @@ export function About() {
           </div>
 
           <div className="relative">
-            <div className="bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl aspect-square flex items-center justify-center">
-              <div className="w-16 h-16 bg-black rounded-full"></div>
+            <div className="rounded-2xl aspect-square overflow-hidden">
+              <img
+                src={Portrait}
+                alt="Portrait of BoDee Angus"
+                className="h-full w-full object-cover"
+                loading="eager"
+                decoding="async"
+              />
             </div>
           </div>
         </motion.div>
